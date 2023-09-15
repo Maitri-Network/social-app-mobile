@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import ENV from '../../env';
 
 export const AUTHENTICATE = 'AUTHENTICATE';
@@ -64,7 +64,6 @@ export const signin = (email, password, expoPushToken) => {
                 notificationToken: expoPushToken
             })
         });
-
         const resData = await response.json();
 
         if(resData.error){

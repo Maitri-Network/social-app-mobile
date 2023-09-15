@@ -114,8 +114,6 @@ const FindPeopleScreen = (props) => {
 
     return (
         <Container style={{ backgroundColor: '#fff' }} >
-            <Header style={{ backgroundColor: Colors.brightBlue }} searchBar rounded>
-                <Item>
                     <Icon name="ios-search" />
                     <Input
                         value={searchText}
@@ -124,8 +122,6 @@ const FindPeopleScreen = (props) => {
                     />
                     <Text>{data.length}</Text>
                     <Icon name="ios-people"  />
-                </Item>
-            </Header>
             { data.length === 0 && (
                 <View style={styles.centered}>
                     <Text style={{ fontSize: 18, margin: 10 }} >No users found.</Text>

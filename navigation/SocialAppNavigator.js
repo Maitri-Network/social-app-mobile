@@ -198,7 +198,7 @@ const BottomTabNavigator = createBottomTabNavigator();
 export const BottomNavigator = () => {
     return (
         <BottomTabNavigator.Navigator
-            tabBarOptions={{
+            screenOptions={{
                 activeTintColor: Colors.brightBlue
             }}
         >

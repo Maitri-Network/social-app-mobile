@@ -64,7 +64,7 @@ const AllPostsScreen = (props) => {
     //     };
     // }, [loadPosts])
     useEffect(() => {
-        const unsubscribe = navigation.dangerouslyGetParent().addListener('tabPress', e => {
+        const unsubscribe = navigation.getParent().addListener('tabPress', e => {
             console.log("TAB PRESSED");
             if(refPosts.current){
                 refPosts.current.scrollToIndex({ animated: true, index: 0 });
@@ -144,7 +144,7 @@ export const screenOptions = (navData) => {
         headerTitle: 'SocialApp',
         headerRight: () => (
             <Ionicons
-                name={Platform.OS === 'android' ? 'md-chatboxes' : 'ios-chatboxes'}
+                name="chatbox-ellipses-outline"
                 size = {24}
                 color={Platform.OS === 'android' ? '#fff' : Colors.brightBlue}
                 style={{  padding: 15, marginRight: 5 }}

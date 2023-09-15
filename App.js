@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import ReduxThunk from 'redux-thunk';
 import FlashMessage from "react-native-flash-message";
 import { MenuProvider } from 'react-native-popup-menu';
+import { NativeBaseProvider } from 'native-base';
 // import { composeWithDevTools } from 'redux-devtools-extension';
 
 import authReducer from './store/reducers/auth';
@@ -30,10 +31,12 @@ export default function App() {
 
   return (
     <Provider store={store}>
-      <MenuProvider>
-        <AppNavigator />
-      </MenuProvider>
-      <FlashMessage position="top" />
+      <NativeBaseProvider>
+        <MenuProvider>
+          <AppNavigator />
+        </MenuProvider>
+        <FlashMessage position="top" />
+      </NativeBaseProvider>
     </Provider>
   );
 }

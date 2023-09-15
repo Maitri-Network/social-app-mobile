@@ -17,7 +17,7 @@ import * as authActions from '../../store/actions/auth';
 import { useDispatch } from 'react-redux';
 import Colors from '../../constants/Colors';
 
-import { Notifications } from 'expo';
+import * as Notifications from 'expo-notifications';
 import * as Permissions from 'expo-permissions';
 import Constants from 'expo-constants';
 
@@ -87,7 +87,7 @@ const AuthScreen = (props) => {
     useEffect(() => {
         registerForPushNotificationsAsync();
         console.log(expoPushToken);
-        _notificationSubscription = Notifications.addListener(_handleNotification);
+        _notificationSubscription = Notifications.addNotificationReceivedListener(_handleNotification);
     }, [])
         
 
@@ -196,23 +196,26 @@ const AuthScreen = (props) => {
                 }
                 setIsLoading(false);
             } else {
-                try {
-                    await dispatch(authActions.signin(email, password, expoPushToken))
-                    showMessage({
-                        message: "Signed in success",
-                        type: "success",
-                        icon: { icon: "success", position: 'left' },
-                        duration: 3000
-                    });
-                } catch (error) {
+				dispatch(authActions.signin(email, password, expoPushToken))
+				.then(() => {
+					showMessage({
+						message: "Signed in success",
+						type: "success",
+						icon: { icon: "success", position: 'left' },
+						duration: 3000
+					});
+						
+				}).catch((error) => {
                     showMessage({
                         message: error.message,
                         type: "danger",
                         icon: { icon: "danger", position: 'left' },
                         duration: 3000
                     });
+
+				}).finally(() => {
                     setIsLoading(false);
-                }
+				});
             }
         }
     };

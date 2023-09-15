@@ -183,11 +183,6 @@ const UserProfileScreen = (props) => {
 
     return (
         <Container style={styles.container} >
-            <Content 
-                refreshControl={
-                    <RefreshControl refreshing={isRefreshing} onRefresh={loadUsers} /> 
-                } 
-            >
                 <View style={{ paddingTop: 20 }}>
                     {/** User Photo Stats**/}
                     <View style={{ flexDirection: 'row' }}>
@@ -328,8 +323,6 @@ const UserProfileScreen = (props) => {
                 <View>
                     {renderSection()}
                 </View>
-            </Content>
-        
         </Container >
     );
 }

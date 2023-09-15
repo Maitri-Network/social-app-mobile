@@ -189,7 +189,7 @@ const Card = (props) => {
                                 onPress={() => navigation.navigate('Comments',{ postId: post._id, userId: userId })}
                             >
                                 <Ionicons 
-                                    name="md-chatboxes"
+                                    name="chatbox-ellipses-outline"
                                     size={24}
                                     style={{ marginRight: 5 }}
                                 />
