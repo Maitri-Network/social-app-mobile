@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, ActivityIndicator, StyleSheet, Text } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useDispatch } from 'react-redux';
 
 import Colors from '../constants/Colors';
