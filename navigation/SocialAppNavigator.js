@@ -248,7 +248,7 @@ export const BottomNavigator = () => {
             />
 
             <BottomTabNavigator.Screen
-                name="YourProfile"
+                name="YourProfile 2"
                 component={UserNavigator}
                 options={{
                     tabBarLabel: 'Profile',
