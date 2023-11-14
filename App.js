@@ -16,7 +16,7 @@ import AppNavigator from './navigation/AppNavigator';
 
 const styles = StyleSheet.create({
   container: {
-    height: "80%",
+    height: "100%",
     width: "100%",
   },
 });

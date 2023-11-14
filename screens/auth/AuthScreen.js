@@ -84,11 +84,11 @@ const AuthScreen = (props) => {
         }
     };
 
-    useEffect(() => {
-        registerForPushNotificationsAsync();
-        console.log(expoPushToken);
-        _notificationSubscription = Notifications.addNotificationReceivedListener(_handleNotification);
-    }, [])
+    // useEffect(() => {
+    //     registerForPushNotificationsAsync();
+    //     console.log(expoPushToken);
+    //     _notificationSubscription = Notifications.addNotificationReceivedListener(_handleNotification);
+    // }, [])
         
 
     const _handleNotification = notification => {
