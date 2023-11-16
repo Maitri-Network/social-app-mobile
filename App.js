@@ -14,14 +14,6 @@ import usersReducer from './store/reducers/users';
 import chatReducer from './store/reducers/chat';
 import AppNavigator from './navigation/AppNavigator';
 
-const styles = StyleSheet.create({
-  container: {
-    height: "100%",
-    width: "100%",
-  },
-});
-
-
 const rootReducer = combineReducers({
   auth: authReducer,
   posts: postsReducer,
@@ -38,7 +30,6 @@ const store = createStore(
 export default function App() {
 
   return (
-      <View style={styles.container}>
     <Provider store={store}>
       <NativeBaseProvider>
         <MenuProvider>
@@ -47,7 +38,6 @@ export default function App() {
         <FlashMessage position="top" />
       </NativeBaseProvider>
     </Provider>
-      </View>
   );
 }
 

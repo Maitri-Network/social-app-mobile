@@ -12,3 +12,7 @@ env.js
 
 # macOS
 .DS_Store
+
+#distribution
+/dist/
+/android/

@@ -143,13 +143,14 @@ export const screenOptions = (navData) => {
     return{
         headerTitle: 'SocialApp',
         headerRight: () => (
-            <Ionicons
-                name="chatbox-ellipses-outline"
-                size = {24}
-                color={Platform.OS === 'android' ? '#fff' : Colors.brightBlue}
-                style={{  padding: 15, marginRight: 5 }}
-                onPress={() => navData.navigation.navigate('ChatList')}
-            />
+            <></>
+            // <Ionicons
+            //     name="chatbox-ellipses-outline"
+            //     size = {24}
+            //     color={Platform.OS === 'android' ? '#fff' : Colors.brightBlue}
+            //     style={{  padding: 15, marginRight: 5 }}
+            //     onPress={() => navData.navigation.navigate('ChatList')}
+            // />
         )
     };
 }

@@ -5,12 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e82a3b3f-8618-419f-80dd-38557d01b0c1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/components/svg/ClockSVG.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/svg/CommentSVG.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/svg/ThumbsUpSVG.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/navigation/SocialAppNavigator.js" beforeDir="false" afterPath="$PROJECT_DIR$/navigation/SocialAppNavigator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/UI/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/UI/Card.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/bundles/android-58826c364e3f0613ec6fcc294d02357d.hbc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/bundles/ios-bf1cc5e033a497f7c58af5386407b2d5.hbc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/metadata.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/StartupScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/StartupScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/actions/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/auth/AuthScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/auth/AuthScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/screens/post/AllPostsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/post/AllPostsScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,13 +46,13 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/kyndle/maitri/react-native-integration&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kyndl/code/server&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/opt/WebStorm-232.8660.143/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2022.1.2\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -66,10 +74,35 @@
       <workItem from="1697839211913" duration="12000" />
       <workItem from="1697845710893" duration="934000" />
       <workItem from="1698104338406" duration="2670000" />
+      <workItem from="1700002211162" duration="3203000" />
+      <workItem from="1700064808146" duration="1340000" />
+      <workItem from="1700163556361" duration="10421000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/navigation/SocialAppNavigator.js</url>
+          <line>199</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

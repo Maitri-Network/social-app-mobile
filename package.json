@@ -2,8 +2,8 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
     "eject": "expo eject"
   },
@@ -15,11 +15,13 @@
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/stack": "^6.3.17",
     "@swc/helpers": "^0.5.2",
-    "expo": "^49.0.10",
+    "expo": "^49.0.18",
     "expo-constants": "~14.4.2",
     "expo-image-picker": "~14.3.2",
     "expo-notifications": "~0.20.1",
     "expo-permissions": "~14.2.1",
+    "expo-splash-screen": "~0.20.5",
+    "expo-status-bar": "~1.6.0",
     "native-base": "^3.4.28",
     "react": "18.2.0",
     "react-aria": "^3.29.1",
@@ -44,5 +46,7 @@
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "babel-preset-expo": "^9.5.0"
   },
-  "private": true
+  "private": true,
+  "name": "social-app-mobile",
+  "version": "1.0.0"
 }

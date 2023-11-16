@@ -11,6 +11,9 @@ import { useDispatch } from 'react-redux';
 import * as postActions from '../../store/actions/posts';
 import { showMessage } from "react-native-flash-message";
 import VerifiedUser from '../../constants/VerifiedUser';
+import ThumbsUpSVG from "../svg/ThumbsUpSVG";
+import CommentSVG from "../svg/CommentSVG";
+import ClockSVG from "../svg/ClockSVG";
 
 const Card = (props) => {
     const { post, userId, fromUserProfile } = props;
@@ -100,7 +103,7 @@ const Card = (props) => {
                                 onError={onImageErrorHandler}
                             />
                             <Text 
-                                style={{ fontSize: 15, alignSelf: 'center', paddingHorizontal: 10, paddingVertical: 5 }} 
+                                style={{ fontSize: 15, alignSelf: 'center', paddingHorizontal: 10, paddingVertical: 5, color: '#000' }}
                                 onPress={() => navigation.navigate('UserProfile', { userId: post.postedBy._id, name: post.postedBy.name })} 
                             > 
                                 {post.postedBy.name + " "}
@@ -110,12 +113,10 @@ const Card = (props) => {
                             </Text>
                         </View>
                         <View style={{ position: 'absolute', right: 0, display: 'flex', flexDirection: 'row'}}>
-                            <Ionicons 
-                                name={ Platform.OS === 'android' ? 'md-time' : 'ios-time' }
-                                size= {14}
-                                style={{ marginTop: 3 }}
-                            />
-                            <Text> {timeDifference(new Date(), new Date(post.created))} </Text>
+                            <View style={{ marginRight: 4 , marginTop: 4}}>
+                                <ClockSVG />
+                            </View>
+                            <Text style={{color: '#000'}}> {timeDifference(new Date(), new Date(post.created))} </Text>
                         </View>
                     </View>
                 </View>
@@ -174,13 +175,8 @@ const Card = (props) => {
                                 style={styles.socialBarButton}
                                 onPress={toggleLike}
                             >
-                                <Ionicons 
-                                    name="md-thumbs-up"
-                                    size={24}
-                                    style={{ marginRight: 5 }}
-                                    color={checkLike() ? 'blue' : "black"}
-                                />
-                                <Text style={styles.socialBarLabel}> {post.likes.length} </Text>
+                                <ThumbsUpSVG />
+                                <Text style={{ color: '#000' }}> {post.likes.length} </Text>
                             </TouchableOpacity>
                         </View>
                         <View style={styles.socialBarSection}>
@@ -188,12 +184,8 @@ const Card = (props) => {
                                 style={styles.socialBarButton}
                                 onPress={() => navigation.navigate('Comments',{ postId: post._id, userId: userId })}
                             >
-                                <Ionicons 
-                                    name="chatbox-ellipses-outline"
-                                    size={24}
-                                    style={{ marginRight: 5 }}
-                                />
-                                <Text style={styles.socialBarLabel}> {post.comments.length} </Text>
+                                <CommentSVG />
+                                <Text style={{ color: '#000' }}> {post.comments.length} </Text>
                             </TouchableOpacity>
                         </View>
                         
@@ -204,9 +196,9 @@ const Card = (props) => {
                     onPress={() => navigation.navigate('Comments', { postId: post._id, userId: userId })}
                 >
                     { post.comments.length > 0 ? (
-                        <Text style={{ paddingHorizontal: 16, paddingBottom: 15, paddingTop: 5 }} >View all {post.comments.length} comments </Text>
+                        <Text style={{ paddingHorizontal: 16, paddingBottom: 15, paddingTop: 5, color:'#000' }} >View all {post.comments.length} comments </Text>
                     ) : (
-                        <Text style={{ paddingHorizontal: 16, paddingBottom: 15, paddingTop: 5 }} >Comment here </Text>
+                        <Text style={{ paddingHorizontal: 16, paddingBottom: 15, paddingTop: 5, color:'#000' }} >Comment here </Text>
                     ) }
                 </TouchableOpacity>
                 { post.postedBy._id === userId && (
@@ -341,7 +333,8 @@ const styles = StyleSheet.create({
         marginRight: 20
     },
     socialBarlabel: {
-        marginLeft: 20
+        marginLeft: 20,
+        color: '#FF0000'
     },
     socialBarButton: {
         flexDirection: 'row',

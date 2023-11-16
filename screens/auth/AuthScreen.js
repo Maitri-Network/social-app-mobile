@@ -295,7 +295,7 @@ const AuthScreen = (props) => {
                         <ActivityIndicator size="small" color="#fff" />
                     )  :(
                         <Text style={styles.loginText}>
-                            { isSignup ? "Register" : "Login" }
+                            { isSignup ? "Register" : "Login2" }
                         </Text>
                     ) }
                     
@@ -309,7 +309,7 @@ const AuthScreen = (props) => {
                     }}
                 >
                     <Text style={styles.btnText} >
-                        { isSignup ? "Already a user ? Login" : "Don't have an account ? Register" }
+                        { isSignup ? "Already a user ? Login2" : "Don't have an account ? Register" }
                     </Text>
                 </TouchableOpacity>
             </View>    
@@ -421,6 +421,7 @@ const styles = StyleSheet.create({
         marginLeft: 16,
         borderBottomColor: '#FFFFFF',
         flex: 1,
+        color: '#000'
     },
     inputIcon: {
         width: 30,
