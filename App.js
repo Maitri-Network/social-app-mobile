@@ -29,9 +29,7 @@ export default function App() {
 
   return (
     <Provider store={store}>
-        <MenuProvider>
-          <AppNavigator  />
-        </MenuProvider>
+	  <AppNavigator  />
         <FlashMessage position="top" />
     </Provider>
   );
