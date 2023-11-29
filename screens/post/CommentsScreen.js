@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, {useState, useCallback, useRef} from 'react';
 import {  StyleSheet, Text, View,FlatList, TextInput, KeyboardAvoidingView, Alert, ActivityIndicator, TouchableOpacity } from 'react-native';
 
 import Comment from '../../components/UI/Comment';
@@ -17,7 +17,8 @@ const CommentsScreen = (props) => {
     const { route } = props;
     const postId = route.params.postId;
     const userId = route.params.userId;
-    
+    const commentRef = useRef();
+
     const dispatch = useDispatch();
 
     const posts = useSelector(state => state.posts.allPosts);
@@ -66,13 +67,13 @@ const CommentsScreen = (props) => {
 
     const deleteCommentHandler = async (comment) => {
         Alert.alert(
-            'Are you sure?', 
+            'Are you sure?',
             'Do you really want to delete this comment?',
             [
                 {text: 'No', style: 'default'},
                 {
-                    text: 'Yes', 
-                    style: 'destructive', 
+                    text: 'Yes',
+                    style: 'destructive',
                     onPress: async () => {
                         try {
                             showMessage({
@@ -121,11 +122,13 @@ const CommentsScreen = (props) => {
             <KeyboardAvoidingView style={{position: 'absolute', left: 0, right: 0, bottom: 0}}>
                 <View style={styles.inputContainer}>
                     <TextInput style={styles.inputs}
+                        ref={commentRef}
                         placeholder="Leave a comment"
                         value={text}
                         onChangeText={(value) => setText(value)}
+                        onPressIn={() => commentRef.current?.focus()}
                     />
-                    <View 
+                    <View
                         style={styles.postButtonContainer}
                     >
                         <TouchableOpacity
@@ -139,9 +142,9 @@ const CommentsScreen = (props) => {
                         </TouchableOpacity>
                     </View>
                 </View>
-                
+
             </KeyboardAvoidingView>
-                
+
         </View>
     );
 };
@@ -186,13 +189,13 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     postButtonContainer: {
-        position: 'absolute', 
-        right: 0, 
+        position: 'absolute',
+        right: 0,
         height: 45,
-        width: '15%' , 
-        backgroundColor: Colors.brightBlue, 
-        padding: 5, 
-        display: 'flex', 
+        width: '15%' ,
+        backgroundColor: Colors.brightBlue,
+        padding: 5,
+        display: 'flex',
         justifyContent: 'center',
         alignItems: 'center'
     }

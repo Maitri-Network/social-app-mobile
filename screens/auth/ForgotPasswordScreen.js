@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useRef, useState} from 'react';
 import {
     StyleSheet,
     Text,
@@ -21,6 +21,8 @@ const ForgotPasswordScreen = () => {
 
     const [isLoading, setIsLoading] = useState(false);
 
+    const emailRef = useRef();
+
     const dispatch = useDispatch();
 
     const validateAuthForm = () => {
@@ -34,7 +36,7 @@ const ForgotPasswordScreen = () => {
             });
             return false;
         }
-        
+
         return true;
     }
 
@@ -75,16 +77,19 @@ const ForgotPasswordScreen = () => {
                 )} */}
                 <View style={styles.inputContainer}>
                     <TextInput style={styles.inputs}
+                        ref={emailRef}
                         placeholder="Email"
                         keyboardType="email-address"
                         underlineColorAndroid='transparent'
+                               onPressIn={(e) => console.log(e)}
                         value={email}
                         onChangeText={(text) => setEmail(text)}
+                        onPressIn={() => emailRef.current?.focus()}
                     />
                     <Image style={styles.inputIcon} source={{ uri: 'https://img.icons8.com/nolan/40/000000/email.png' }} />
                 </View>
 
-                <TouchableOpacity 
+                <TouchableOpacity
                     style={[styles.buttonContainer, styles.loginButton]}
                     onPress={AuthHandler}
                 >
@@ -96,9 +101,9 @@ const ForgotPasswordScreen = () => {
                             Send Password Reset Link
                         </Text>
                     ) }
-                    
+
                 </TouchableOpacity>
-            </View>    
+            </View>
     );
 }
 
@@ -106,7 +111,7 @@ const ForgotPasswordScreen = () => {
 export const screenOptions = (navData) => {
     return{
         headerTitle: 'Reset Password',
-        
+
     }
 }
 
@@ -146,7 +151,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#DFF2BF" ,
         color: "#4F8A10",
         borderRadius: 25,
-        
+
     },
     msgText: {
         fontSize: 15,
@@ -250,7 +255,7 @@ const styles = StyleSheet.create({
         color: "white",
         fontWeight: 'bold'
     }
-}); 
+});
 
 
 export default ForgotPasswordScreen;
