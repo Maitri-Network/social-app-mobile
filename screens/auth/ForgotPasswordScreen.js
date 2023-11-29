@@ -68,14 +68,14 @@ const ForgotPasswordScreen = () => {
 
     return (
             <View style={styles.container}>
-                {/*<Image style={styles.bgImage} source={require('../../assets/bg-auth.png')} />*/}
+                <Image style={styles.bgImage} source={require('../../assets/bg-auth.png')} />
                 {/* { error !== null && (
                     <View style={styles.errorMsgContainer} >
                         <Image style={styles.msgIcon} source={{ uri: "https://i.imgur.com/GnyDvKN.png" }} />
                         <Text style={styles.msgText}> {error} </Text>
                     </View>
                 )} */}
-                <View>
+                <View style={styles.inputContainer}>
                     <TextInput style={styles.inputs}
                         ref={emailRef}
                         placeholder="Email"
@@ -86,7 +86,7 @@ const ForgotPasswordScreen = () => {
                         onChangeText={(text) => setEmail(text)}
                         onPressIn={() => emailRef.current?.focus()}
                     />
-                    {/*<Image style={styles.inputIcon} source={{ uri: 'https://img.icons8.com/nolan/40/000000/email.png' }} />*/}
+                    <Image style={styles.inputIcon} source={{ uri: 'https://img.icons8.com/nolan/40/000000/email.png' }} />
                 </View>
 
                 <TouchableOpacity
@@ -185,11 +185,10 @@ const styles = StyleSheet.create({
         elevation: 5,
     },
     inputs: {
-        backgroundColor: '#FFFFFF',
-        height: 100,
-        width: 300,
+        height: 45,
         marginLeft: 16,
-        borderBottomColor: '#FFFFFF'
+        borderBottomColor: '#FFFFFF',
+        flex: 1,
     },
     inputIcon: {
         width: 30,
