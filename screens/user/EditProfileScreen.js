@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useRef, useState} from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, ActivityIndicator, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -14,7 +14,7 @@ const EditProfileScreen = (props) => {
     const loggedUser = useSelector(state => state.auth.user);
     const users = useSelector(state => state.users.allUsers);
     const userDetails = users.filter(u => u._id === loggedUser._id)[0];
-    
+
     const [name, setName] = useState(userDetails.name);
     const [email, setEmail] = useState(userDetails.email);
     const [about, setAbout] = useState(userDetails.about);
@@ -29,6 +29,11 @@ const EditProfileScreen = (props) => {
 
     const [isLoading, setIsLoading] = useState(false);
 
+    const nameRef = useRef();
+    const emailRef = useRef();
+    const aboutRef = useRef();
+    const passwordRef = useRef();
+
     const dispatch = useDispatch();
 
     const clearForm = () => {
@@ -38,7 +43,7 @@ const EditProfileScreen = (props) => {
         setPassword('');
         setIsLoading(false);
     }
-    
+
     const validatePost = () => {
         const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const passwordRegex = /\d/
@@ -90,7 +95,7 @@ const EditProfileScreen = (props) => {
             });
             return false;
         }
-        
+
         if(password.length > 0 && password.length < 6){
             showMessage({
                 message: "Password should be atleast 6 characters long.",
@@ -105,7 +110,7 @@ const EditProfileScreen = (props) => {
                 message: "Password should contain atleast 1 number.",
                 type: "danger",
                 icon: { icon: "danger", position: 'left' }
-            });     
+            });
             return false;
         }
         return true;
@@ -132,7 +137,7 @@ const EditProfileScreen = (props) => {
                 });
                 console.log("ERROR ",error.message);
             }
-        } 
+        }
         setIsLoading(false);
     }
 
@@ -155,21 +160,23 @@ const EditProfileScreen = (props) => {
                         <Text style={styles.labelText} >Profile Photo</Text>
                     </View>
 
-                    <ImgPicker 
-                        onImageTaken={imagePickedHandler} 
+                    <ImgPicker
+                        onImageTaken={imagePickedHandler}
                         editImage={editImage}
                         previousUpdate={previousUpdate}
                     />
-                    
+
                     <View style={styles.labelContainer} >
                         <Text style={styles.labelText} >Name</Text>
                     </View>
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.inputs}
+                            ref={nameRef}
                             placeholder="Name"
                             underlineColorAndroid='transparent'
                             value={name}
                             onChangeText={(text) => setName(text) }
+                            onPressIn={() => nameRef.current?.focus()}
                         />
                     </View>
 
@@ -178,10 +185,12 @@ const EditProfileScreen = (props) => {
                     </View>
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.inputs}
+                            ref={emailRef}
                             placeholder="Email"
                             underlineColorAndroid='transparent'
                             value={email}
                             onChangeText={(text) => setEmail(text) }
+                            onPressIn={() => emailRef.current?.focus()}
                         />
                     </View>
 
@@ -190,10 +199,12 @@ const EditProfileScreen = (props) => {
                     </View>
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.inputs}
+                            ref={aboutRef}
                             placeholder="About"
                             underlineColorAndroid='transparent'
                             value={about}
                             onChangeText={(text) => setAbout(text) }
+                            onPressIn={() => aboutRef.current?.focus()}
                         />
                     </View>
 
@@ -202,15 +213,17 @@ const EditProfileScreen = (props) => {
                     </View>
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.inputs}
+                            ref={passwordRef}
                             placeholder="Password"
                             secureTextEntry={true}
                             underlineColorAndroid='transparent'
                             value={password}
                             onChangeText={(text) => setPassword(text) }
+                            onPressIn={() => passwordRef.current?.focus()}
                         />
                     </View>
 
-                    <TouchableOpacity 
+                    <TouchableOpacity
                         style={[styles.buttonContainer, styles.loginButton]}
                         onPress={updatePost}
                     >
@@ -222,11 +235,11 @@ const EditProfileScreen = (props) => {
                                 Update
                             </Text>
                         ) }
-                        
+
                     </TouchableOpacity>
 
-                    </View>   
-                
+                    </View>
+
             </KeyboardAvoidingView>
 
         </ScrollView>

@@ -1,13 +1,13 @@
-import React, { useEffect,useState } from 'react';
-import { 
-    View, 
-    Text, 
-    StyleSheet, 
-    TextInput, 
-    TouchableOpacity, 
-    ActivityIndicator, 
-    KeyboardAvoidingView, 
-    ScrollView 
+import React, {useEffect, useRef, useState} from 'react';
+import {
+    View,
+    Text,
+    StyleSheet,
+    TextInput,
+    TouchableOpacity,
+    ActivityIndicator,
+    KeyboardAvoidingView,
+    ScrollView
 } from 'react-native';
 import { useDispatch } from 'react-redux';
 
@@ -25,7 +25,8 @@ const AddPostScreen = (props) => {
     const [imageType, setImageType] = useState('');
 
     const [isLoading, setIsLoading] = useState(false);
-
+    const titleRef = useRef();
+    const postRef = useRef();
     const dispatch = useDispatch();
 
 
@@ -116,7 +117,7 @@ const AddPostScreen = (props) => {
                 });
                 console.log("ERROR ",error.message);
             }
-        } 
+        }
         setIsLoading(false);
     }
 
@@ -135,7 +136,7 @@ const AddPostScreen = (props) => {
                             <Text style={styles.msgText}> {error} </Text>
                         </View>
                     )} */}
-                    <ImgPicker 
+                    <ImgPicker
                         onImageTaken={imagePickedHandler}
                         clearPickedImage={clearPickedImage}
                     />
@@ -144,10 +145,12 @@ const AddPostScreen = (props) => {
                     </View>
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.inputs}
+                            ref={titleRef}
                             placeholder="Title"
                             underlineColorAndroid='transparent'
                             value={title}
                             onChangeText={(text) => setTitle(text) }
+                            onPressIn={() => titleRef.current?.focus()}
                         />
                     </View>
                     <View style={styles.labelContainer} >
@@ -155,13 +158,15 @@ const AddPostScreen = (props) => {
                     </View>
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.inputs}
+                            ref={postRef}
                             placeholder="Body"
                             underlineColorAndroid='transparent'
                             value={body}
                             onChangeText={(text) => setBody(text) }
+                            onPressIn={() => postRef.current?.focus()}
                         />
                     </View>
-                    <TouchableOpacity 
+                    <TouchableOpacity
                         style={[styles.buttonContainer, styles.loginButton]}
                         onPress={createPost}
                     >
@@ -172,7 +177,7 @@ const AddPostScreen = (props) => {
                                 Post
                             </Text>
                         ) }
-                        
+
                     </TouchableOpacity>
                 </View>
             </KeyboardAvoidingView>

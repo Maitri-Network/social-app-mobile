@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import {
     StyleSheet,
     Text,
@@ -33,6 +33,10 @@ const AuthScreen = (props) => {
 
     const [expoPushToken, setExpoPushToken] = useState('');
     const [notification, setNotification] = useState({});
+
+    const emailInputRef = useRef();
+    const passwordInputRef = useRef();
+    const nameInputRef = useRef();
 
     const dispatch = useDispatch();
     let token;
@@ -89,7 +93,7 @@ const AuthScreen = (props) => {
     //     console.log(expoPushToken);
     //     _notificationSubscription = Notifications.addNotificationReceivedListener(_handleNotification);
     // }, [])
-        
+
 
     const _handleNotification = notification => {
         Vibration.vibrate();
@@ -204,7 +208,7 @@ const AuthScreen = (props) => {
 						icon: { icon: "success", position: 'left' },
 						duration: 3000
 					});
-						
+
 				}).catch((error) => {
                     showMessage({
                         message: error.message,
@@ -248,30 +252,35 @@ const AuthScreen = (props) => {
                 { isSignup && (
                     <View style={styles.inputContainer}>
                         <TextInput style={styles.inputs}
+                            ref={nameInputRef}
                             placeholder="Name"
                             underlineColorAndroid='transparent'
                             value={name}
                             onChangeText={(text) => inputChangeHandler(text,1)}
+                            onPressIn={() => nameInputRef.current?.focus()}
                         />
                         <Image style={styles.inputIcon} source={{ uri: 'https://img.icons8.com/nolan/40/000000/name.png' }} />
                     </View>
                 ) }
-                
                 <View style={styles.inputContainer}>
                     <TextInput style={styles.inputs}
+                        ref={emailInputRef}
                         placeholder="Email"
                         keyboardType="email-address"
                         underlineColorAndroid='transparent'
                         value={email}
                         onChangeText={(text) => inputChangeHandler(text, 2) }
+                        onPressIn={() => emailInputRef.current?.focus()}
                     />
                     <Image style={styles.inputIcon} source={{ uri: 'https://img.icons8.com/nolan/40/000000/email.png' }} />
                 </View>
 
                 <View style={styles.inputContainer}>
                     <TextInput style={styles.inputs}
+                        ref={passwordInputRef}
                         placeholder="Password"
                         secureTextEntry={true}
+                        onPressIn={() => passwordInputRef.current?.focus()}
                         underlineColorAndroid='transparent'
                         value={password}
                         onChangeText={(text) => inputChangeHandler(text, 3) }
@@ -279,14 +288,14 @@ const AuthScreen = (props) => {
                     <Image style={styles.inputIcon} source={{ uri: 'https://img.icons8.com/nolan/40/000000/key.png' }} />
                 </View>
 
-                <TouchableOpacity 
+                <TouchableOpacity
                     onPress={() => props.navigation.navigate('ForgotPassword')}
-                    style={styles.btnForgotPassword} 
+                    style={styles.btnForgotPassword}
                 >
                     <Text style={styles.btnText}>Forgot your password?</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity 
+                <TouchableOpacity
                     style={[styles.buttonContainer, styles.loginButton]}
                     onPress={AuthHandler}
                 >
@@ -298,11 +307,11 @@ const AuthScreen = (props) => {
                             { isSignup ? "Register" : "Login" }
                         </Text>
                     ) }
-                    
+
                 </TouchableOpacity>
 
 
-                <TouchableOpacity 
+                <TouchableOpacity
                     style={[styles.buttonContainer, styles.registerButton]}
                     onPress={() => {
                         setIsSignUp(prevState => !prevState);
@@ -312,7 +321,7 @@ const AuthScreen = (props) => {
                         { isSignup ? "Already a user ? Login" : "Don't have an account ? Register" }
                     </Text>
                 </TouchableOpacity>
-            </View>    
+            </View>
     );
 }
 
@@ -337,7 +346,7 @@ const styles = StyleSheet.create({
     },
     titleContainer: {
         marginBottom: 40,
-    },  
+    },
     title: {
         fontSize: 42,
         color: '#fff',
@@ -383,7 +392,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#DFF2BF" ,
         color: "#4F8A10",
         borderRadius: 25,
-        
+
     },
     msgText: {
         fontSize: 15,
@@ -487,7 +496,7 @@ const styles = StyleSheet.create({
         color: "white",
         fontWeight: 'bold'
     }
-}); 
+});
 
 
 
