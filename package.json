@@ -22,7 +22,7 @@
     "expo-permissions": "~14.2.1",
     "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
-	"native-base": "^2.13.12",
+    "native-base": "^2.13.15",
     "react": "18.2.0",
     "react-aria": "^3.29.1",
     "react-dom": "18.2.0",
