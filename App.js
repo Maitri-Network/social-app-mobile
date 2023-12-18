@@ -31,7 +31,9 @@ export default function App() {
   return (
     <Provider store={store}>
       {/*<Image source={require('../../assets/bg-auth.png')} />*/}
-      <Image style={{width:'100%'}} source={require('./assets/splash2.png')} />
+
+      {/*<Image style={{width:'100%'}} source={require('./assets/splash2.png')} />*/}
+      <Image style={{width:'100%'}} source={"file:///data/data/com.example.maitridemo/cache/social-app/7b1b610118ddf4a12bacfe11cbc0629e.png"} />
         {/*<MenuProvider>*/}
         {/*  <AppNavigator  />*/}
         {/*</MenuProvider>*/}
