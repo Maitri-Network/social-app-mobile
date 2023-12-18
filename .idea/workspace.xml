@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e82a3b3f-8618-419f-80dd-38557d01b0c1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/components/svg/ClockSVG.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/svg/CommentSVG.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/svg/ThumbsUpSVG.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/UI/Card.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/UI/Card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/bundles/android-58826c364e3f0613ec6fcc294d02357d.hbc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/bundles/ios-bf1cc5e033a497f7c58af5386407b2d5.hbc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/auth/AuthScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/auth/AuthScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/post/AllPostsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/post/AllPostsScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

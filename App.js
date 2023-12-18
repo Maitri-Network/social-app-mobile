@@ -11,6 +11,7 @@ import postsReducer from './store/reducers/posts';
 import usersReducer from './store/reducers/users';
 import chatReducer from './store/reducers/chat';
 import AppNavigator from './navigation/AppNavigator';
+import {Image} from "react-native";
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -29,10 +30,12 @@ export default function App() {
 
   return (
     <Provider store={store}>
-        <MenuProvider>
-          <AppNavigator  />
-        </MenuProvider>
-        <FlashMessage position="top" />
+      {/*<Image source={require('../../assets/bg-auth.png')} />*/}
+      <Image style={{width:'100%'}} source={require('./assets/splash2.png')} />
+        {/*<MenuProvider>*/}
+        {/*  <AppNavigator  />*/}
+        {/*</MenuProvider>*/}
+        {/*<FlashMessage position="top" />*/}
     </Provider>
   );
 }
