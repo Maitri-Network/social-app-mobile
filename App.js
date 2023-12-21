@@ -27,18 +27,21 @@ const store = createStore(
 );
 
 export default function App() {
-
   return (
     <Provider store={store}>
       {/*<Image source={require('../../assets/bg-auth.png')} />*/}
 
       {/*<Image style={{width:'100%'}} source={require('./assets/splash2.png')} />*/}
-      <Image style={{width:'100%'}} source={"file:///data/data/com.example.maitridemo/cache/social-app/7b1b610118ddf4a12bacfe11cbc0629e.png"} />
-        {/*<MenuProvider>*/}
-        {/*  <AppNavigator  />*/}
-        {/*</MenuProvider>*/}
-        {/*<FlashMessage position="top" />*/}
+      <Image
+        style={{ width: "300", height: "300" }}
+        source={{
+          uri: "file:///data/data/com.example.maitridemo/cache/social-app/7b1b610118ddf4a12bacfe11cbc0629e.png",
+        }}
+      />
+      {/*<MenuProvider>*/}
+      {/*  <AppNavigator  />*/}
+      {/*</MenuProvider>*/}
+      {/*<FlashMessage position="top" />*/}
     </Provider>
   );
 }
-
